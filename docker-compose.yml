@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  mqtt-publisher:
+    build: .
+    env_file:
+      - .env
+    container_name: dabo

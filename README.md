@@ -1,10 +1,10 @@
 # :incoming_envelope: DaBo :incoming_envelope:
 
-## Data in a Box <br> A Simple, Customizable MQTT Publisher for Dummy Multi-Room Environmental Data
+## Data in a Box <br> A Simple, Customizable MQTT Publisher for Synthetic Multi-Room Environmental Data
 
 ## Description
-DaBo, from the Latin "I will give", is a simple MQTT publisher based on [Eclipse Paho-MQTT](https://eclipse.dev/paho/files/paho.mqtt.python/html/client.html) to provide dummy data for temperature, CO2, and light on/off over 24 hours. The data is randomized and follows a simple sine wave, so it does not reflect any real-case scenario or real data (for now...). Over the 24 hours, the temperature and CO2 reach their highest values at noon and their lowest at midnight, then repeat. Light is also randomized every 10 cycles. It should be used solely to demonstrate data visualization when real data is unavailable.
-All of this is nicely dockerized and controlled by [Docker Compose](https://docs.docker.com/compose/).
+DaBo, from the Latin "I will give", is a simple MQTT publisher based on [Eclipse Paho-MQTT](https://eclipse.dev/paho/files/paho.mqtt.python/html/client.html) to provide dummy data for temperature, CO2, and light on/off over 24 hours. The data is randomized and follows a simple sine wave, so it does not reflect any real-case scenario or real data (for now...). Over the 24 hours, the temperature and CO2 reach their highest values at noon and their lowest at midnight, then repeat. Light is also randomised every 10 cycles. It should be used solely to demonstrate data visualisation when real data is unavailable.
+All of this is nicely Dockerized and controlled by [Docker Compose](https://docs.docker.com/compose/).
 
 ## Usage
 

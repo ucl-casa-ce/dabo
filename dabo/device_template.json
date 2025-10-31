@@ -1,0 +1,35 @@
+[
+  {
+    "device_type": "raspberry_pi",
+    "count": 10,
+    "root_topic": "pi_cluster",
+    "sensors": {
+      "cpu_percent": { "type": "random_float", "min": 0, "max": 100 },
+      "ping_ms": { "type": "random_int", "min": 10, "max": 100 },
+      "temp": { "type": "sine_temp", "min": 30, "max": 45 },
+      "heartbeat": { "type": "timestamp" },
+      "time": { "type": "normal_time" }
+    }
+  },
+  {
+    "device_type": "room_sensor",
+    "count": 18,
+    "root_topic": "room",
+    "sensors": {
+      "co2": { "type": "sine_co2", "min": 400, "max": 1000 },
+      "temperature": { "type": "sine_temp", "min": 18, "max": 26 },
+      "light_on": { "type": "random_int", "min": 0, "max": 1 },
+      "time": { "type": "normal_time" }
+    }
+  },
+  {
+    "device_type": "prusa_printers",
+    "count": 4,
+    "root_topic": "prusa",
+    "sensors": {
+      "temperature": { "type": "random_float", "min": 100, "max": 126 },
+      "job": { "type": "random_int", "min": 0, "max": 1 },
+      "time": { "type": "normal_time" }
+    }
+  }
+]

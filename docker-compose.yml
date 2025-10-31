@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  mqtt-publisher:
+  dabo-service:
     build: .
     env_file:
       - .env

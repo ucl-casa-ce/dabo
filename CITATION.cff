@@ -1,0 +1,37 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 'DaBo, Data in a Box'
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Valerio
+    family-names: Signorelli
+    email: v.signorelli@ucl.ac.uk
+    affiliation: University College London
+    orcid: 'https://orcid.org/0000-0002-1023-0366'
+repository-code: 'https://github.com/ucl-casa-ce/dabo'
+abstract: >-
+  DaBo is a customizable MQTT publisher written in Python,
+  designed to broadcast synthetic sensor data for testing,
+  prototyping, and demonstration purposes. It uses the
+  Eclipse Paho-MQTT library to publish data to an MQTT
+  broker and is fully containerised for easy deployment.
+  DaBo simulates sensor readings using randomised and
+  time-aware functions, making it ideal for visualising data
+  flows when real-world data is unavailable or impractical
+  to use: prototyping data pipelines; testing MQTT-based
+  dashboards; demonstrating real-time data visualisation;
+  teaching and experimentation.
+keywords:
+  - iot
+  - mqtt
+  - synthetic data
+  - connected environments
+  - sensor data
+license: MIT
+version: '0.2'
+date-released: '2025-10-31'

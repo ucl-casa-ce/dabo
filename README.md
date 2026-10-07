@@ -30,7 +30,7 @@ Each entry in the JSON array must include:
 - `sensors`: A dictionary of sensor names and their simulation configuration.
 
 Each `sensor` must include:
-- `type`: The function used to simulate the sensor value. This must match one of the available functions in `data_generator.py`:
+`type`: The function used to simulate the sensor value. This must match one of the available functions in `data_generator.py` under the section `FUNCTION TYPES`. For example:
 
 - `random_float`: Generates a floating-point number between a specified minimum and maximum.
 - `random_int`: Produces a random integer within a defined range.
@@ -39,13 +39,13 @@ Each `sensor` must include:
 - `timestamp`: Returns the current Unix timestamp to represent a heartbeat or data capture moment.
 - `normal_time`: Formats the simulated time as a human-readable string (HH:MM:SS).
 
-- `min and max`: The minimum and maximum values the sensor can produce (required for all types except `timestamp` and `normal_time`).
+Depending of the `function type` some sensors will required also a `min and max` parameter: the minimum and maximum values the sensor can produce.
 
 The MQTT topic for each device is constructed as:
 
-Number of instances (count)
-MQTT topic root (root_topic)
-Sensor definitions with types and value ranges
+- Number of instances (count)
+- MQTT topic root (root_topic)
+- Sensor definitions with types and value ranges
 
 ```bash
 <root_topic>/<device_type>_<device_number>
@@ -66,7 +66,7 @@ The devices will publish to:
 - `room/room_sensor_01`
 - `room/room_sensor_02`
 
-Each sensor within the device will be published as a JSON payload under that topic.
+Each sensor within the same device will be published as a JSON payload under that topic.
 
 ```json
 [
@@ -159,8 +159,6 @@ This will start publishing synthetic sensor data to your MQTT broker at the conf
 ```bash
 docker-compose up --build
 ```
-
-
 
 This will launch DaBo inside a container and begin publishing data based on your `.env` and `device_template.json` configuration.
 

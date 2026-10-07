@@ -12,23 +12,123 @@
     }
   },
   {
-    "device_type": "room_sensor",
-    "count": 18,
-    "root_topic": "room",
-    "sensors": {
-      "co2": { "type": "sine_co2", "min": 400, "max": 1000 },
-      "temperature": { "type": "sine_temp", "min": 18, "max": 26 },
-      "light_on": { "type": "random_int", "min": 0, "max": 1 },
-      "time": { "type": "normal_time" }
-    }
-  },
-  {
     "device_type": "prusa_printers",
     "count": 4,
     "root_topic": "prusa",
     "sensors": {
       "temperature": { "type": "random_float", "min": 100, "max": 126 },
       "job": { "type": "random_int", "min": 0, "max": 1 },
+      "time": { "type": "normal_time" }
+    }
+  },{
+    "device_type": "bench",
+    "count": 100,
+    "root_topic": "benches",
+    "sensors": {
+      "occupied": { "type": "bench_occupancy", "capacity": 4 },
+      "heartbeat": { "type": "timestamp" },
+      "time": { "type": "normal_time" }
+    }
+  },
+  {
+    "device_type": "room_sensor",
+    "count": 18,
+    "root_topic": "room",
+    "sensors": {
+      "co2": { "type": "sine_co2", "min": 400, "max": 1000 },
+      "humidity": { "type": "sine_humidity", "min": 40, "max": 70 },
+      "temperature": { "type": "sine_temp", "min": 18, "max": 26 },
+      "light_on": { "type": "random_int", "min": 0, "max": 1 },
+      "heartbeat": { "type": "timestamp" },
+      "time": { "type": "normal_time" }
+    }
+  },
+  {
+    "device_type": "weather_station",
+    "count": 1,
+    "root_topic": "weather",
+    "sensors": {
+      "air_temperature": { "type": "weather_temperature", "min": 4, "max": 32 },
+      "relative_humidity": { "type": "weather_humidity", "min": 30, "max": 98 },
+      "barometric_pressure": { "type": "weather_pressure", "min": 980, "max": 1040 },
+
+      "wind_speed": { "type": "weather_wind_speed", "min": 0, "max": 18 },
+      "wind_direction": { "type": "weather_wind_direction", "min": 0, "max": 359 },
+
+      "rain_rate": { "type": "weather_rain_rate", "min": 0, "max": 25 },
+      "solar_radiation": { "type": "weather_solar_radiation", "min": 0, "max": 1000 },
+      "uv_index": { "type": "weather_uv", "min": 0, "max": 9 },
+      "lux": { "type": "lux_sensor", "min": 0, "max": 120000 },
+
+      "surface_temperature": { "type": "surface_temperature", "min": 2, "max": 50 },
+
+      "heartbeat": { "type": "timestamp" },
+      "time": { "type": "daily_sine" }
+    }
+  },
+  {
+    "device_type": "water_level",
+    "count": 1,
+    "root_topic": "water",
+    "sensors": {
+      "level_cm": { "type": "ultrasonic_water_level", "min": 20, "max": 120 },
+      "heartbeat": { "type": "timestamp" },
+      "time": { "type": "normal_time" }
+    }
+  },
+  {
+    "device_type": "soil_moisture",
+    "count": 2,
+    "root_topic": "soil",
+    "sensors": {
+      "moisture": { "type": "soil_moisture", "min": 10, "max": 90 },
+      "heartbeat": { "type": "timestamp" },
+      "time": { "type": "normal_time" }
+    }
+  },
+  
+{
+  "device_type": "soil_temperature",
+  "count": 2,
+  "root_topic": "soil_temperature",
+  "sensors": {
+    "temperature": { "type": "soil_temperature", "min": 6, "max": 26 },
+    "heartbeat": { "type": "timestamp" },
+    "time": { "type": "normal_time" }
+  }
+},
+
+ {
+  "device_type": "birdnet",
+  "count": 1,
+  "root_topic": "birdnet",
+  "sensors": {
+    "event": { "type": "birdnet_event" },
+    "heartbeat": { "type": "timestamp" },
+    "time": { "type": "normal_time" }
+  }
+},
+  {
+    "device_type": "noise_sensor",
+    "count": 1,
+    "root_topic": "noise",
+    "sensors": {
+      "noise_db": { "type": "noise_level", "min": 30, "max": 180 },
+      "heartbeat": { "type": "timestamp" },
+      "time": { "type": "normal_time" }
+    }
+  },
+  {
+    "device_type": "air_quality",
+    "count": 1,
+    "root_topic": "air",
+    "sensors": {
+      "pm25": { "type": "air_quality_pm25", "min": 2, "max": 80 },
+      "pm10": { "type": "air_quality_pm10", "min": 5, "max": 120 },
+      "no2": { "type": "air_quality_no2", "min": 5, "max": 100 },
+      "o3": { "type": "air_quality_o3", "min": 2, "max": 90 },
+      "voc": { "type": "air_quality_voc", "min": 50, "max": 800 },
+      "heartbeat": { "type": "timestamp" },
       "time": { "type": "normal_time" }
     }
   }

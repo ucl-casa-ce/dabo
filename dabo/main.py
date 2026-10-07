@@ -37,20 +37,27 @@ minute = 0
 second = 0
 
 # Loop to simulate the data and publish on the MQTT broker
+sim_seconds = hour*3600 + minute*60 + second
+
 while True:
     for device_id, info in devices.items():
-        profile = info["sensors"]
+        profile    = info["sensors"]
         root_topic = info["root_topic"]
-        data = generate_data(profile, hour,minute,second)
-        topic = f"{root_topic}/{device_id}"
+        topic      = f"{root_topic}/{device_id}"
+
+        # derive H:M:S for downstream generators
+        H, rem  = divmod(sim_seconds % 86400, 3600)
+        M, S    = divmod(rem, 60)
+
+        data = generate_data(device_id, profile, H, M, S)
         publisher.publish(device_id=topic, data=data)
 
     time.sleep(frequency)
-    second += (frequency * realtime_multiplier)
-    # minute += (frequency * realtime_multiplier) / 60
-    if second >= 60:
-        minute = (minute + 1) % 60
-        second = second %60
-    if minute >= 60:
-        hour = (hour + 1) % 24
-        minute = minute % 60
+
+    # advance simulation
+    sim_seconds = (sim_seconds + int(frequency * realtime_multiplier)) % 86400
+
+    # pretty print
+    H, rem = divmod(sim_seconds, 3600)
+    M, S   = divmod(rem, 60)
+    print(f"{H:02}:{M:02}:{S:02}")
